@@ -3,14 +3,14 @@
 // PID values in pid.c
 
 // rate in deg/sec for acro mode
-#define MAX_RATE 1800
-#define MAX_RATEYAW 1800
+#define MAX_RATE 600
+#define MAX_RATEYAW 600
 
 // max angle for level mode
 #define LEVEL_MAX_ANGLE 80
 
 // max rate used by level pid (limit)
-#define LEVEL_MAX_RATE 1800
+#define LEVEL_MAX_RATE 500
 
 #define LOW_RATES_MULTI 0.5
 
@@ -69,7 +69,7 @@
 // #define GYRO_LPF_2ND_HZ_THROTTLE 0.25
 
 // Additional Gyro yaw first order LPF
-//#define GYRO_YAW_LPF_1ST_HZ 60
+#define GYRO_YAW_LPF_1ST_HZ 60
 
 // D-Term second order LPF (cannot be turned off)
 #define DTERM_LPF_2ND_HZ_BASE 60 //* ( aux[ FN_INVERTED ] ? 0.75f : 1.0f )
@@ -77,28 +77,28 @@
 #define DTERM_LPF_2ND_HZ_THROTTLE 0.5
 
 // Additional D-Term first order LPF
-//#define DTERM_LPF_1ST_HZ 60
+#define DTERM_LPF_1ST_HZ 60
 
 // Whether to use Bessel type filter for D-Term instead of PT2.
 //#define DTERM_BESSEL_FILTER
 
 // If enabled, the D-Term filter uses the filtered gyro signal from above.
-//#define CASCADE_GYRO_AND_DTERM_FILTER
+#define CASCADE_GYRO_AND_DTERM_FILTER
 
 // Switch function selection
+#define USE_MULTI
+#define RATES MULTI_CHAN_8 // LOW_RATES_MULTI gets applied when RATES is 0.
 
-#define RATES DEVO_CHAN_9 // LOW_RATES_MULTI gets applied when RATES is 0.
+#define LEVELMODE MULTI_CHAN_7 // Set this to CH_ON for level mode always on. Comment it out for just acro.
 
-#define LEVELMODE DEVO_CHAN_10 // Set this to CH_ON for level mode always on. Comment it out for just acro.
-
-#define LEDS_ON DEVO_CHAN_7
+#define LEDS_ON MULTI_CHAN_9
 
 // To stop the motors on ground a switch on the remote control is necessary.
-#define THROTTLE_KILL_SWITCH DEVO_CHAN_5
+#define THROTTLE_KILL_SWITCH MULTI_CHAN_10
 
 // enable inverted (3D) flight code
-#define INVERTED_ENABLE // goes together with BIDIRECTIONAL in drv_dshot.c and drv_dshot_dma.c
-#define FN_INVERTED DEVO_CHAN_6
+// #define INVERTED_ENABLE // goes together with BIDIRECTIONAL in drv_dshot.c and drv_dshot_dma.c
+#define FN_INVERTED MULTI_CHAN_9
 // #define LEVEL_MODE_INVERTED_ENABLE // be careful when enabling this
 
 // Two switchable channels via gestures: CH_AUX1 and CH_AUX2
@@ -109,7 +109,7 @@
 
 // lost quad beeps using motors (60 sec timeout)
 #define MOTOR_BEEPS
-#define MOTOR_BEEPS_CHANNEL DEVO_CHAN_12
+#define MOTOR_BEEPS_CHANNEL MULTI_CHAN_6
 
 // Send maximum looptime in the telemetry data.
 #define DISPLAY_MAX_USED_LOOP_TIME_INSTEAD_OF_RX_PACKETS
@@ -117,8 +117,8 @@
 #define DISPLAY_PID_VALUES
 
 // Radio module and protocol selection (only Bayang protocol implemented)
-#define RX_NRF24_BAYANG_TELEMETRY // For nRF24L01+ radio module
-// #define RX_BAYANG_PROTOCOL_TELEMETRY // For XN297 radio module harvested from toy TX
+// #define RX_NRF24_BAYANG_TELEMETRY // For nRF24L01+ radio module
+#define RX_BAYANG_PROTOCOL_TELEMETRY // For XN297 radio module harvested from toy TX
 
 #define RADIO_XN297 // also enable SOFTSPI_4WIRE in hardware.h
 // #define RADIO_XN297L // also enable SOFTSPI_3WIRE in hardware.h
@@ -194,17 +194,17 @@
 // Note, the motors don't get rotated, so they have to be referenced to the new gyro position.
 //#define SENSOR_ROTATE_45_CCW
 //#define SENSOR_ROTATE_45_CW
-//#define SENSOR_ROTATE_90_CW
+#define SENSOR_ROTATE_90_CW
 //#define SENSOR_ROTATE_90_CCW
-#define SENSOR_ROTATE_180
+//#define SENSOR_ROTATE_180
 //#define SENSOR_INVERT // Necessary if the gyro is mounted upside down. For an inverted gyro,
 // the expected orientation is with the dot on the chip in the front-right corner.
 
 // Motor order
-#define MOTOR_BL 2
-#define MOTOR_FL 1
-#define MOTOR_BR 4
-#define MOTOR_FR 3
+#define MOTOR_BL 3
+#define MOTOR_FL 4
+#define MOTOR_BR 2
+#define MOTOR_FR 1
 
 // Disable the check for known gyro that causes the 4 times LED flash.
 #define GYRO_CHECK

@@ -256,11 +256,11 @@ void pid( int x )
 #endif
 
 	pidoutput[ x ] *= battery_scale_factor;
-
+#ifdef INVERTED_ENABLE
 	if ( aux[ FN_INVERTED ] ) {
 		pidoutput[ x ] *= AA_pidScaleInverted;
 	}
-
+#endif
 	limitf( &pidoutput[ x ], out_limit );
 }
 

@@ -1,7 +1,7 @@
 // Original BWHOOP DMA code by JazzMac who based his work on http://www.cnblogs.com/shangdawei/p/4762035.html
 
 // Enable this for 3D. The 'Motor Direction' setting in BLHeliSuite must be set to 'Bidirectional' (or 'Bidirectional Rev.') accordingly:
-#define BIDIRECTIONAL
+// #define BIDIRECTIONAL
 
 // IDLE_OFFSET is added to the throttle. Adjust its value so that the motors still spin at minimum throttle.
 #define IDLE_OFFSET 30 // 4S
