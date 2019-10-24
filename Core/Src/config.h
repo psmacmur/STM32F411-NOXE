@@ -69,7 +69,7 @@
 // #define GYRO_LPF_2ND_HZ_THROTTLE 0.25
 
 // Additional Gyro yaw first order LPF
-#define GYRO_YAW_LPF_1ST_HZ 60
+//#define GYRO_YAW_LPF_1ST_HZ 60
 
 // D-Term second order LPF (cannot be turned off)
 #define DTERM_LPF_2ND_HZ_BASE 60 //* ( aux[ FN_INVERTED ] ? 0.75f : 1.0f )
@@ -77,13 +77,13 @@
 #define DTERM_LPF_2ND_HZ_THROTTLE 0.5
 
 // Additional D-Term first order LPF
-#define DTERM_LPF_1ST_HZ 60
+//#define DTERM_LPF_1ST_HZ 60
 
 // Whether to use Bessel type filter for D-Term instead of PT2.
 //#define DTERM_BESSEL_FILTER
 
 // If enabled, the D-Term filter uses the filtered gyro signal from above. (Notch filters are always applied.)
-#define CASCADE_GYRO_AND_DTERM_FILTER
+//#define CASCADE_GYRO_AND_DTERM_FILTER
 
 // Switch function selection
 #define USE_MULTI

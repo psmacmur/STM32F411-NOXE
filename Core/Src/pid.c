@@ -38,9 +38,9 @@ static float pdScaleValue; // updated in pid_precalc()
 
 // unscaled PID values tuned for 4S
 //                         { roll, pitch, yaw }
-float pidkp[ PIDNUMBER ] = { 0.04, 0.04, 0.05 };
-float pidki[ PIDNUMBER ] = { 0.50, 0.50, 3.0 };
-float pidkd[ PIDNUMBER ] = { 0.20, 0.20, 0.0 };
+float pidkp[PIDNUMBER] = { 4.0e-2 , 4.0e-2 , 2.0e-1 };
+float pidki[PIDNUMBER] = { 2.0e-1 , 2.0e-1 , 1.0e-1 };
+float pidkd[PIDNUMBER] = { 4.0e-1 , 4.0e-1 , 2.0e-1 }; 
 
 // "setpoint weighting" 0.0 - 1.0 where 1.0 = normal pid
 //#define ENABLE_SETPOINT_WEIGHTING
